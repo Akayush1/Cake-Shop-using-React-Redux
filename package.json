@@ -1,0 +1,17 @@
+{
+  "name": "reactreduxtoolkit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "immer": "^10.1.1",
+    "redux": "^5.0.1",
+    "redux-logger": "^3.0.6"
+  }
+}
