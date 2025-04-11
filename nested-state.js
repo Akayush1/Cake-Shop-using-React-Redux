@@ -1,3 +1,5 @@
+//immer is used in case of nested state example address where we have trouble maintaing other properties using ... state
+
 const redux =require('redux')
 const produce =require('immer').produce
 const initialState={
@@ -9,9 +11,9 @@ const initialState={
     },
 }
 
-const STREET_UPDATED = 'STREET__UPDATED'
+const STREET_UPDATED = 'STREET__UPDATED' // define constant for action type
 
-function updatestreet(street) //Action creator
+function updatestreet(street) //Action creator ps. u can also use arrow function
 {
     return{
         type:STREET_UPDATED,
@@ -24,7 +26,7 @@ const reducer =(state=initialState,action)=>{
     switch(action.type) 
     {
         case STREET_UPDATED :
-            // return{
+            // return{                    // This is very complex so we use immer
             //     ...state,
             //     address:{
             //         ...state.address,
@@ -33,7 +35,8 @@ const reducer =(state=initialState,action)=>{
             //     },
             // }
 
-            return produce(state,(draft)=>{
+            return produce(state,(draft)=>{     //1st arg is current state and second is a function
+                                                 // with a draft copy of the state
                 draft.address.street=action.payload
 
             })
